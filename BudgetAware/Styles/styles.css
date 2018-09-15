@@ -1,0 +1,19 @@
+﻿body {
+    font-family:Roboto;
+}
+
+.row{
+    margin-top:45px;
+}
+
+h1{
+    color:white;
+}
+
+.userTitle{
+    font-size:30px;
+}
+
+.card{
+    font-size:30px;
+}

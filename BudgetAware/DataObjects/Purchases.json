@@ -1,0 +1,132 @@
+{
+    "purchases": [
+      {
+        "PurchaseId": "1",
+        "Category": "Food",
+        "Cost": "12.00",
+        "Company": "Jimmy Johns",
+        "PurchaseDate": "9/14/2018",
+        "AccountNumber": "1234567"
+      },
+      {
+        "PurchaseId": "2",
+        "Category": "Clothing",
+        "Cost": "50.99",
+        "Company": "Banana Republic",
+        "PurchaseDate": "4/17/2018",
+        "AccountNumber": "12345678"
+      },
+      {
+        "PurchaseId": "3",
+        "Category": "Entertainment",
+        "Cost": "180.95",
+        "Company": "Nebraska Football",
+        "PurchaseDate": "7/28/2018",
+        "AccountNumber": "123456789"
+      },
+      {
+        "PurchaseId": "4",
+        "Category": "Misc",
+        "Cost": "10.99",
+        "Company": "HyVee Gas",
+        "PurchaseDate": "10/28/2018",
+        "AccountNumber": "1234567897"
+      },
+      {
+        "PurchaseId": "5",
+        "Category": "Food",
+        "Cost": "12.00",
+        "Company": "Jimmy Johns",
+        "PurchaseDate": "9/14/2018",
+        "AccountNumber": "123456789"
+      },
+      {
+        "PurchaseId": "6",
+        "Category": "Clothing",
+        "Cost": "50.99",
+        "Company": "Banana Republic",
+        "PurchaseDate": "4/17/2018",
+        "AccountNumber": "1234567"
+      },
+      {
+        "PurchaseId": "7",
+        "Category": "Entertainment",
+        "Cost": "180.95",
+        "Company": "Nebraska Football",
+        "PurchaseDate": "7/28/2018",
+        "AccountNumber": "12345678"
+      },
+      {
+        "PurchaseId": "8",
+        "Category": "Misc",
+        "Cost": "10.99",
+        "Company": "HyVee Gas",
+        "PurchaseDate": "10/28/2018",
+        "AccountNumber": "1234567"
+      },
+      {
+        "PurchaseId": "9",
+        "Category": "Food",
+        "Cost": "12.00",
+        "Company": "Jimmy Johns",
+        "PurchaseDate": "9/14/2018",
+        "AccountNumber": "123456789"
+      },
+      {
+        "PurchaseId": "10",
+        "Category": "Clothing",
+        "Cost": "50.99",
+        "Company": "Banana Republic",
+        "PurchaseDate": "4/17/2018",
+        "AccountNumber": "12345678"
+      },
+      {
+        "PurchaseId": "11",
+        "Category": "Entertainment",
+        "Cost": "180.95",
+        "Company": "Nebraska Football",
+        "PurchaseDate": "7/28/2018",
+        "AccountNumber": "123456789"
+      },
+      {
+        "PurchaseId": "12",
+        "Category": "Misc",
+        "Cost": "10.99",
+        "Company": "HyVee Gas",
+        "PurchaseDate": "10/28/2018",
+        "AccountNumber": "1234567897"
+      },
+      {
+        "PurchaseId": "13",
+        "Category": "Food",
+        "Cost": "12.00",
+        "Company": "Jimmy Johns",
+        "PurchaseDate": "9/14/2018",
+        "AccountNumber": "1234567"
+      },
+      {
+        "PurchaseId": "14",
+        "Category": "Clothing",
+        "Cost": "50.99",
+        "Company": "Banana Republic",
+        "PurchaseDate": "4/17/2018",
+        "AccountNumber": "123456789"
+      },
+      {
+        "PurchaseId": "15",
+        "Category": "Entertainment",
+        "Cost": "180.95",
+        "Company": "Nebraska Football",
+        "PurchaseDate": "7/28/2018",
+        "AccountNumber": "12345678"
+      },
+      {
+        "PurchaseId": "16",
+        "Category": "Misc",
+        "Cost": "10.99",
+        "Company": "HyVee Gas",
+        "PurchaseDate": "10/28/2018",
+        "AccountNumber": "123456789"
+      }
+    ]
+  }

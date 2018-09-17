@@ -25,12 +25,13 @@
       "Birthday": "05/17/1980"
     },
     {
-      "Id": "4",
-      "FirstName": "Linda",
-      "LastName": "Walz",
-      "EmailAddress": "lwalz5@gmail.com",
-      "Password": "Loulou12",
-      "Birthday": "05/17/1980"
-    }
+        "Id": "4",
+        "FirstName": "Linda",
+        "LastName": "Walz",
+        "EmailAddress": "lwalz5@gmail.com",
+        "Password": "Loulou12",
+        "Birthday": "05/17/1980"
+      }
+
   ]
 }

@@ -8,18 +8,6 @@ namespace BudgetAware
 {
     public partial class Login : System.Web.UI.Page
     {
-        public User Session
-        {
-            get
-            {
-                return (User)ViewState["LoggedIn"];
-            }
-            set
-            {
-                ViewState["LoggedIn"] = value;
-            }
-
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -87,12 +75,11 @@ namespace BudgetAware
                     }
                     else
                     {
-                        //Wrong Password
+                        throw new Exception("Invalid Password");
                     }
                 }
                 else
                 {
-                    //Email not found
                 }
             }
 

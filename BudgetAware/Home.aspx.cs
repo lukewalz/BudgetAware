@@ -30,6 +30,8 @@ namespace BudgetAware
                 Response.Redirect("~/Login.aspx");
             }
 
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\Content\\baseline-face-24px.svg");
+            iconImg.Src = currentDir;
             GetAccount();
             GetPurchases();
             ConvertToJson();

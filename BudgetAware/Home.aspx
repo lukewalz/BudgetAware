@@ -14,7 +14,7 @@
 
             <div class="card-body" runat="server" id="userCard">
                 <div class="card-img">
-                    <img src="C:\Users\luke_walz\Source\Repos\BudgetAware\BudgetAware\Content\baseline-face-24px.svg" alt="User Icon" />
+                    <img id="iconImg" runat="server" alt="User Icon" />
                 </div>
                 <div class="card-header" runat="server" id="userName"></div>
                 <div class="card-text" runat="server" id="userInfo"></div>

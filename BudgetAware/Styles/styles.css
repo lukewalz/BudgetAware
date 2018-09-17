@@ -1,11 +1,35 @@
 ﻿body {
     font-family: Roboto;
+    background-color: #E0E0E0;
 }
 
 .row {
     margin-top: 45px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+}
+
+a {
+    color: white;
+    height: 100%;
+}
+
+ul {
+    height: 100%
+}
+
+a:hover {
+    background-color: white;
+    color: cornflowerblue;
+}
+
+li {
+    display: flex;
+}
+
+#form1 {
+    display: flex;
+    width: 100%;
 }
 
 h1 {
@@ -25,11 +49,15 @@ h1 {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
-    .box{
-        width: 48%;
-        height: auto;
-    }
+.box {
+    width: 48%;
+    height: auto;
+}
 
-    .app3{
-        width:100%;
-    }
+.app3 {
+    width: 100%;
+}
+
+.card-img {
+    width: 50%;
+}

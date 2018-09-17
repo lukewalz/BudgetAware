@@ -169,7 +169,7 @@ class PieChart extends React.Component {
 
         // Set chart options
         var options = {
-            'width': 400,
+            'width': '100%',
             'height': 300,
             'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
         };

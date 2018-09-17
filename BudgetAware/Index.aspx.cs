@@ -30,7 +30,7 @@ namespace BudgetAware
                 Response.Redirect("~/Login.aspx");
             }
 
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\Content\\baseline-face-24px.svg");
+            string currentDir = "https://i.postimg.cc/hv8BvBj6/baseline_face_black_48dp.png";
             iconImg.Src = currentDir;
             GetAccount();
             GetPurchases();
@@ -39,7 +39,7 @@ namespace BudgetAware
 
         private void GetPurchases()
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("DataObjects\\Purchases.json");
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\bin\\DataObjects\\Purchases.json");
             RootPurchaseObject rootObject;
 
             using (StreamReader r = new StreamReader(currentDir))
@@ -66,7 +66,7 @@ namespace BudgetAware
 
         private void GetAccount()
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("DataObjects\\Accounts.json");
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\bin\\DataObjects\\Accounts.json");
             RootAccountObject rootObject;
             using (StreamReader r = new StreamReader(currentDir))
             {

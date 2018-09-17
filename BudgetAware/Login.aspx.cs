@@ -55,7 +55,7 @@ namespace BudgetAware
 
         private void VerifyAccount(string emailAddress, string password)
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("DataObjects\\Users.json");
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("bin\\DataObjects\\Users.json");
             RootUserObject rootObject;
             using (StreamReader r = new StreamReader(currentDir))
             {
@@ -70,7 +70,7 @@ namespace BudgetAware
                     if (user.Password == password)
                     {
                         Application["LoggedIn"] = user;
-                        Response.Redirect("~/Home.aspx");
+                        Response.Redirect("~/Index.aspx");
                     }
                     else
                     {

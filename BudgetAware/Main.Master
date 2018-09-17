@@ -16,20 +16,19 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-primary">
-        <h1>Budget.Aware</h1>
+    <nav class="navbar navbar-expand-lg bg-primary ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Index.aspx">Budget.Aware</a>
+            </div>
 
-<%--        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-            </li>
-        </ul>--%>
+            <ul class="nav navbar-nav justify-content-center">
+                <li><a class="nav-link" href="/Register.aspx">Sign Up</a></li>
+                <li><a class="nav-link" href="/Login.aspx">Login</a></li>
+            </ul>
+
+        </div>
+
 
     </nav>
     <div class="container">

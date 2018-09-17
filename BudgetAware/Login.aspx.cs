@@ -74,7 +74,6 @@ namespace BudgetAware
                     }
                     else
                     {
-                        throw new Exception("Invalid Password");
                     }
                 }
                 else

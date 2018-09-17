@@ -7,11 +7,35 @@
     render() {
         return (
             <div>
-                <div>
+                <div className='card-body'>
                     Company: {this.props.name}
                 </div>
             </div>
         )
+    }
+}
+
+class RecentPurchases extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div className='card'>
+                <div className='card-body'>
+                    <div className='card-header'>
+                        Recent Purchases
+                    </div>
+                    <div className='card-text'>
+                        <ul>
+                            {this.props.purchases.map(i => <li>{i}</li>)}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        )
+
     }
 }
 
@@ -64,11 +88,55 @@ class PurchaseSummary extends React.Component {
 
     render() {
         this.deserialize();
-        return <PieChart data={this.categorizePurchases()} />
-        //return (this.state.purchases.map(e => <div className="row" key={e}><Company name={e} /></div>))
+        return <div><RecentPurchases purchases={this.state.purchases.map(i => i.Company + '---' + i.Cost)} /> <PieChart data={this.categorizePurchases()} /><BudgetDiagram /> </div>
     }
 
 
+}
+class BudgetDiagram extends React.Component {
+    constructor(props) {
+        super(props);
+        this.renderBudgetChart = this.renderBudgetChart.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+
+    }
+    componentDidMount() {
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(this.renderBudgetChart);
+    }
+
+    renderBudgetChart() {
+        var data = new google.visualization.arrayToDataTable([
+            ['Category', 'Budget','Spent'],
+            ['Clothing', 500, 800],
+            ['Food', 500, 700],
+            ['Entertainment', 500, 600],
+            ['Miscellaneous', 500, 700]
+        ]);
+
+        var options = {
+            width: '100%',
+            bars: 'horizontal', // Required for Material Bar Charts.
+            series: {
+                0: { axis: 'budget' }, // Bind series 0 to an axis named 'distance'.
+                1: { axis: 'spent' } // Bind series 1 to an axis named 'brightness'.
+            },
+            axes: {
+                x: {
+                    distance: { label: 'parsecs' }, // Bottom x-axis.
+                    brightness: { side: 'top', label: 'apparent magnitude' } // Top x-axis.
+                }
+            }
+        }
+
+        var chart = new google.charts.Bar(document.getElementById('bar'));
+        console.log('thisfar');
+        chart.draw(data, options);
+    }
+
+render() {
+    return '';
+}
 }
 
 class PieChart extends React.Component {
@@ -101,16 +169,13 @@ class PieChart extends React.Component {
 
         // Set chart options
         var options = {
-            'title': 'Your Spending',
-            'width': 800,
-            'height': 800,
+            'width': 400,
+            'height': 300,
             'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
-            'animation': { "startup": true }
-
         };
 
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('app'));
+        var chart = new google.visualization.PieChart(document.getElementById('pie'));
         chart.draw(data, options);
     }
 
@@ -119,4 +184,4 @@ class PieChart extends React.Component {
     }
 }
 
-ReactDOM.render(<PurchaseSummary />, document.getElementById('app'))
+ReactDOM.render(<PurchaseSummary />, document.getElementById('app2'))

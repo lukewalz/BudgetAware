@@ -55,12 +55,11 @@ namespace BudgetAware
 
         private void VerifyAccount(string emailAddress, string password)
         {
-            string path = "C:\\Users\\lukew\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\BudgetAware\\BudgetAware\\DataObjects\\Users.json";
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("DataObjects\\Users.json");
             RootUserObject rootObject;
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(currentDir))
             {
                 string json = r.ReadToEnd();
-                var e = JsonConvert.DeserializeObject<User>(json);
                 rootObject = new JavaScriptSerializer().Deserialize<RootUserObject>(json);
             }
 

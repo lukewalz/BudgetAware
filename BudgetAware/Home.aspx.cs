@@ -64,9 +64,9 @@ namespace BudgetAware
 
         private void GetAccount()
         {
-            string path = "C:\\Users\\luke_walz\\Source\\Repos\\BudgetAware\\BudgetAware\\\\DataObjects\\Accounts.json";
+            string currentDir = System.Web.HttpContext.Current.Server.MapPath("DataObjects\\Accounts.json");
             RootAccountObject rootObject;
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(currentDir))
             {
                 string json = r.ReadToEnd();
                 rootObject = new JavaScriptSerializer().Deserialize<RootAccountObject>(json);

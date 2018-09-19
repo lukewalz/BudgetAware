@@ -22,7 +22,6 @@ class RecentPurchases extends React.Component {
 
     render() {
         return (
-            <div className='card'>
                 <div className='card-body'>
                     <div className='card-header'>
                         Recent Purchases
@@ -32,7 +31,6 @@ class RecentPurchases extends React.Component {
                             {this.props.purchases.map(i => <li>{i}</li>)}
                         </ul>
                     </div>
-                </div>
             </div>
         )
 
@@ -52,7 +50,7 @@ class PurchaseSummary extends React.Component {
 
     handleClick() {
         let f = document.getElementById('addPurchases');
-        f.style.display = "block";
+        f.style.display = "flex";
     }
 
     categorizePurchases() {
@@ -121,7 +119,7 @@ class BudgetDiagram extends React.Component {
         ]);
 
         var options = {
-            width: '100%',
+            width: '400',
             bars: 'horizontal', // Required for Material Bar Charts.
             series: {
                 0: { axis: 'budget' }, // Bind series 0 to an axis named 'distance'.

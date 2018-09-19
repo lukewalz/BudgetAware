@@ -18,6 +18,10 @@ ul {
     height: 100%
 }
 
+#addPurchases {
+    display: none;
+}
+
 a:hover {
     background-color: white;
     color: cornflowerblue;

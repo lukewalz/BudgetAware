@@ -7,6 +7,6 @@ namespace BudgetAware
 {
     public class RootAccountObject
     {
-        public List<Account> accounts { get; set; }
+        public List<Accounts> accounts { get; set; }
     }
 }

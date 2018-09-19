@@ -43,7 +43,7 @@
                     <label for="accountNum">Account Number:</label>
                     <input type="text" class="form-control" id="accountNum" runat="server" required="required">
                 </div>
-                <asp:button text="Submit" id="submit" runat="server" type="submit" class="btn btn-primary" OnClick="submit_Click"/>
+                <asp:Button Text="Submit" ID="submit" runat="server" type="submit" class="btn btn-primary" OnClick="submit_Click" />
             </div>
 
         </form>

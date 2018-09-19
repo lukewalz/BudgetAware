@@ -1,5 +1,9 @@
-﻿using System;
+﻿using BudgetAware.Dal;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,7 +13,7 @@ namespace BudgetAware
 {
     public partial class Register : System.Web.UI.Page
     {
-        public User user { get; set; }
+        public Users user { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,40 +21,53 @@ namespace BudgetAware
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            bool _isValueNull = CheckForNulls();
-            if (!_isValueNull)
+            Users _user = new Users();
+            _user.FirstName = fName.Value;
+            _user.LastName = lName.Value;
+            _user.EmailAddress = email.Value;
+            _user.Password = pwd.Value;
+            _user.Birthday = DateTime.Parse(dob.Value);
+
+            if (!DoesUserExist(_user.EmailAddress))
             {
-                bool _isUsernameUnique = CheckUsernameIsUnique();
-                if (_isUsernameUnique)
-                {
-                    bool _userAdded = AddUserToTable();
-                    if (_userAdded)
-                    {
-                        bool _accountAdded = AddAccountToTable();
-                        Application["LoggedIn"] = user;
-                        Response.Redirect("~/Index.aspx");
-                    }
-                }
+                UsersDb _usersDb = new UsersDb();
+                int userId = _usersDb.AddUser(_user);
+
+                Random rnd = new Random();
+                decimal _balance = rnd.Next(100, 1000000);
+                Accounts _account = new Accounts();
+                _account.AccountNumber = Convert.ToInt32(accountNum.Value.ToString());
+                _account.AccountType = accounttype.Value;
+                _account.Fk_UserId = userId;
+                _account.Balance = _balance;
+
+                AccountDb _accountDb = new AccountDb();
+                int account = _accountDb.AddAccount(_account);
+                _user.Id = userId;
+            }
+
+
+            Application["LoggedIn"] = _user.Id.ToString();
+            Response.Redirect("/Index.aspx");
+        }
+
+        private bool DoesUserExist(string email)
+        {
+
+            UsersDb _usersDb = new UsersDb();
+            Users user = _usersDb.GetUserByEmail(email);
+
+            if (user.Id == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
-        private bool AddAccountToTable()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        private bool AddUserToTable()
-        {
-            throw new NotImplementedException();
-        }
-
         private bool CheckForNulls()
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool CheckUsernameIsUnique()
         {
             throw new NotImplementedException();
         }

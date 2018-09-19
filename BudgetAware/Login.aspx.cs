@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
+using BudgetAware.Dal;
 
 namespace BudgetAware
 {
@@ -55,29 +56,14 @@ namespace BudgetAware
 
         private void VerifyAccount(string emailAddress, string password)
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("bin\\DataObjects\\Users.json");
-            RootUserObject rootObject;
-            using (StreamReader r = new StreamReader(currentDir))
+            UsersDb usersDb = new UsersDb();
+            Users user = usersDb.GetUserByEmail(emailAddress);
+            if (user.Id != 0)
             {
-                string json = r.ReadToEnd();
-                rootObject = new JavaScriptSerializer().Deserialize<RootUserObject>(json);
-            }
-
-            foreach (User user in rootObject.users)
-            {
-                if (user.EmailAddress == emailAddress)
+                if (user.Password == password)
                 {
-                    if (user.Password == password)
-                    {
-                        Application["LoggedIn"] = user;
-                        Response.Redirect("~/Index.aspx");
-                    }
-                    else
-                    {
-                    }
-                }
-                else
-                {
+                    Application["LoggedIn"] = user.Id;
+                    Response.Redirect("~/Index.aspx");
                 }
             }
 

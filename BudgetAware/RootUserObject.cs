@@ -4,6 +4,6 @@ namespace BudgetAware
 {
     public class RootUserObject
     {
-        public List<User> users { get; set; }
+        public List<Users> users { get; set; }
     }
 }

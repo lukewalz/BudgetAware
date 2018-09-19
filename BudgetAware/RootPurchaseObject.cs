@@ -7,6 +7,6 @@ namespace BudgetAware
 {
     public class RootPurchaseObject
     {
-        public List<Purchase> purchases { get; set; }
+        public List<Purchases> purchases { get; set; }
     }
 }

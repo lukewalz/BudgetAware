@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BudgetAware.Dal;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,18 +13,19 @@ namespace BudgetAware
 {
     public partial class Home : System.Web.UI.Page
     {
-        private User currentUser;
-        private Account currentAccount;
-        private List<Purchase> currentPurchases;
+        private Users currentUser;
+        private Accounts currentAccount;
+        private List<Purchases> currentPurchases;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Application["LoggedIn"] != null)
             {
-                User _user = (User)Application["LoggedIn"];
-                currentUser = _user;
-                userName.InnerText = $"{_user.FirstName} {_user.LastName}";
-                userInfo.InnerText = $"{_user.Birthday.ToString("MM/dd/yyyy")}";
+                UsersDb usersDb = new UsersDb();
+                Users user = usersDb.GetUserById(Convert.ToInt32(Application["LoggedIn"]));
+                currentUser = user;
+                userName.InnerText = $"{user.FirstName} {user.LastName}";
+                userInfo.InnerText = $"{user.Birthday.ToString("MM/dd/yyyy")}";
             }
             else
             {
@@ -39,16 +41,8 @@ namespace BudgetAware
 
         private void GetPurchases()
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\bin\\DataObjects\\Purchases.json");
-            RootPurchaseObject rootObject;
-
-            using (StreamReader r = new StreamReader(currentDir))
-            {
-                string json = r.ReadToEnd();
-                rootObject = new JavaScriptSerializer().Deserialize<RootPurchaseObject>(json);
-            }
-
-            List<Purchase> userPurchases = rootObject.purchases.Where(i => i.AccountNumber == currentAccount.AccountNumber).ToList<Purchase>();
+            PurchaseDb purchaseDb = new PurchaseDb();
+            List<Purchases> userPurchases = purchaseDb.GetPurchasesByAccountId(currentAccount.AccountNumber);
             currentPurchases = userPurchases;
         }
 
@@ -66,15 +60,8 @@ namespace BudgetAware
 
         private void GetAccount()
         {
-            string currentDir = System.Web.HttpContext.Current.Server.MapPath("\\bin\\DataObjects\\Accounts.json");
-            RootAccountObject rootObject;
-            using (StreamReader r = new StreamReader(currentDir))
-            {
-                string json = r.ReadToEnd();
-                rootObject = new JavaScriptSerializer().Deserialize<RootAccountObject>(json);
-            }
-
-            Account userAccount = rootObject.accounts.Where(i => i.UserId == currentUser.Id).First();
+            AccountDb accountDb = new AccountDb();
+            Accounts userAccount = accountDb.GetAccountsByUserId(currentUser.Id);
             currentAccount = userAccount;          
         }
     }

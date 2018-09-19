@@ -44,9 +44,15 @@ class PurchaseSummary extends React.Component {
         super(props);
         this.deserialize = this.deserialize.bind(this);
         this.categorizePurchases = this.categorizePurchases.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             purchases: []
         }
+    }
+
+    handleClick() {
+        let f = document.getElementById('addPurchases');
+        f.style.display = "block";
     }
 
     categorizePurchases() {
@@ -88,7 +94,7 @@ class PurchaseSummary extends React.Component {
 
     render() {
         this.deserialize();
-        return <div><RecentPurchases purchases={this.state.purchases.map(i => i.Company + '---' + i.Cost)} /> <PieChart data={this.categorizePurchases()} /><BudgetDiagram /> </div>
+        return <div><RecentPurchases purchases={this.state.purchases.map(i => i.Company + '---' + i.Cost)} /> <PieChart data={this.categorizePurchases()} /><div className='btn btn-primary' onClick={this.handleClick}>Add Purchase</div><BudgetDiagram /> </div>
     }
 
 

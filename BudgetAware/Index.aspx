@@ -13,11 +13,12 @@
         <div class="card">
 
             <div class="card-body" runat="server" id="userCard">
-                    <img class="card-img-top" id="iconImg" runat="server" alt="User Icon" />
+                <img class="card-img-top" id="iconImg" runat="server" alt="User Icon" />
                 <div class="card-header" runat="server" id="userName"></div>
                 <div class="card-text" runat="server" id="userInfo"></div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <div id="app" class="card box">
@@ -31,7 +32,6 @@
         </div>
         <div id="app2" class="box">
         </div>
-
     </div>
     <div class="row">
         <div id="app3" class="card box">
@@ -45,7 +45,10 @@
         </div>
     </div>
 
-
+    <div id="addPurchases">
+        <input value="enter company name of purchase" />
+        <input value="enter cost" />
+    </div>
     <div id="hiddenJsonUser" runat="server" hidden="hidden">
     </div>
     <div id="hiddenJsonAccount" runat="server" hidden="hidden">

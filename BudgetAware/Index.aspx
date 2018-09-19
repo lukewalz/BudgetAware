@@ -35,7 +35,7 @@
             <div id="addPurchases" class="card col container-fluid">
                 <div class="container-fluid">
                     <div class="row">
-                        <form id="form1" runat="server">
+                        <form id="form1" runat="server" >
                             <div class="col">
                                 <div class="form-group">
                                     <label for="company">Company:</label>
@@ -45,9 +45,7 @@
                                     <label for="cost">Cost:</label>
                                     <input type="text" class="form-control" id="cost" runat="server" required="required">
                                 </div>
-                                <asp:button text="Submit" id="submit" runat="server" type="submit" class="btn btn-primary" />
                             </div>
-
                         </form>
                     </div>
                 </div>

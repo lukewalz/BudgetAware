@@ -18,10 +18,6 @@ ul {
     height: 100%
 }
 
-#addPurchases {
-    display: none;
-}
-
 a:hover {
     background-color: white;
     color: cornflowerblue;
@@ -47,9 +43,33 @@ h1 {
 .card {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    justify-content:space-between;
+    justify-content: space-between;
+    min-width: unset;
+    display: flex;
+    margin: 10px;
+    overflow: hidden;
 }
 
     .card:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    #bar{
+        margin-top: 30px;
+    }
+
+    .btn-primary{
+        margin: 10px;
+    }
+
+    table{
+        font-size: 15px;
+    }
+
+    .expandedList{
+        height:inherit;
+    }
+
+    .minifiedList{
+        height:300px;
     }

@@ -94,7 +94,7 @@ namespace BudgetAware.Dal
                 user.FirstName = reader.GetValue(1).ToString();
                 user.LastName = reader.GetValue(2).ToString();
                 user.EmailAddress = reader.GetValue(3).ToString();
-                user.Password = reader.GetValue(4).ToString();
+                user.Birthday = reader.GetDateTime(5);
             }
             sqlConnection.Close();
             return user;

@@ -31,19 +31,24 @@ namespace BudgetAware
             if (!DoesUserExist(_user.EmailAddress))
             {
                 UsersDb _usersDb = new UsersDb();
-                int userId = _usersDb.AddUser(_user);
 
-                Random rnd = new Random();
-                decimal _balance = rnd.Next(100, 1000000);
-                Accounts _account = new Accounts();
-                _account.AccountNumber = Convert.ToInt32(accountNum.Value.ToString());
-                _account.AccountType = accounttype.Value;
-                _account.Fk_UserId = userId;
-                _account.Balance = _balance;
+                if (pwd.Value == cpwd.Value)
+                {
+                    int userId = _usersDb.AddUser(_user);
 
-                AccountDb _accountDb = new AccountDb();
-                int account = _accountDb.AddAccount(_account);
-                _user.Id = userId;
+                    Random rnd = new Random();
+                    decimal _balance = rnd.Next(100, 1000000);
+                    Accounts _account = new Accounts();
+                    _account.AccountNumber = Convert.ToInt32(accountNum.Value.ToString());
+                    _account.AccountType = accounttype.Value;
+                    _account.Fk_UserId = userId;
+                    _account.Balance = _balance;
+
+                    AccountDb _accountDb = new AccountDb();
+                    int account = _accountDb.AddAccount(_account);
+                    _user.Id = userId;
+                }
+
             }
 
 

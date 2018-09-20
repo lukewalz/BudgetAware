@@ -16,6 +16,7 @@ namespace BudgetAware
         private Users currentUser;
         private Accounts currentAccount;
         private List<Purchases> currentPurchases;
+        private List<Budget> currentBudget;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +26,7 @@ namespace BudgetAware
                 Users user = usersDb.GetUserById(Convert.ToInt32(Application["LoggedIn"]));
                 currentUser = user;
                 userName.InnerText = $"{user.FirstName} {user.LastName}";
-                userInfo.InnerText = $"{user.Birthday.ToString("MM/dd/yyyy")}";
+                birthday.InnerText = $"Birthday:{user.Birthday.ToString("MM/dd/yyyy")}";
             }
             else
             {
@@ -36,7 +37,15 @@ namespace BudgetAware
             iconImg.Src = currentDir;
             GetAccount();
             GetPurchases();
+            GetBudget();
             ConvertToJson();
+        }
+
+        private void GetBudget()
+        {
+            BudgetDb budgetDb = new BudgetDb();
+            List<Budget> budget = budgetDb.GetBudgetByUserId(currentUser.Id);
+            currentBudget = budget;
         }
 
         private void GetPurchases()
@@ -52,17 +61,47 @@ namespace BudgetAware
             string serialUser = serializer.Serialize(currentUser);
             string serialAccount = serializer.Serialize(currentAccount);
             string serialPurchases = serializer.Serialize(currentPurchases);
+            string serialBudget = serializer.Serialize(currentBudget);
+
 
             hiddenJsonUser.InnerText = serialUser;
             hiddenJsonAccount.InnerText = serialAccount;
             hiddenJsonPurchases.InnerText = serialPurchases;
+            hiddenJsonBudget.InnerText = serialBudget;
         }
 
         private void GetAccount()
         {
             AccountDb accountDb = new AccountDb();
             Accounts userAccount = accountDb.GetAccountsByUserId(currentUser.Id);
-            currentAccount = userAccount;          
+            currentAccount = userAccount;
+            accountInfo.InnerText = $"Account Number : {currentAccount.AccountNumber}";
         }
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            Purchases purchase = new Purchases();
+            purchase.Fk_AccountNumber = currentAccount.AccountNumber;
+            purchase.Fk_CategoryId = Convert.ToInt32(this.category.Value);
+            purchase.PurchaseDate = DateTime.Now.Date;
+            purchase.Cost = Convert.ToDecimal(cost.Value);
+            purchase.Company = this.company.Value;
+            bool purchaseAdded = AddPurchase(purchase);
+        }
+
+        private bool AddPurchase(Purchases purchase)
+        {
+            PurchaseDb purchaseDb = new PurchaseDb();
+            var t = purchaseDb.AddPurchase(purchase);
+            if (t > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

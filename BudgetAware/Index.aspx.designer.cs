@@ -40,13 +40,22 @@ namespace BudgetAware {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl userName;
         
         /// <summary>
-        /// userInfo control.
+        /// birthday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl birthday;
+        
+        /// <summary>
+        /// accountInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountInfo;
         
         /// <summary>
         /// form1 control.
@@ -76,6 +85,15 @@ namespace BudgetAware {
         protected global::System.Web.UI.HtmlControls.HtmlInputText cost;
         
         /// <summary>
+        /// category control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect category;
+        
+        /// <summary>
         /// hiddenJsonUser control.
         /// </summary>
         /// <remarks>
@@ -101,5 +119,14 @@ namespace BudgetAware {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hiddenJsonPurchases;
+        
+        /// <summary>
+        /// hiddenJsonBudget control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hiddenJsonBudget;
     }
 }

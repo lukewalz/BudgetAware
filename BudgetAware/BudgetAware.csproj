@@ -83,6 +83,7 @@
     <EmbeddedResource Include="Content\baseline-face-24px.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="AdjustBudget.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
@@ -93,9 +94,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts.cs" />
+    <Compile Include="AdjustBudget.aspx.cs">
+      <DependentUpon>AdjustBudget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdjustBudget.aspx.designer.cs">
+      <DependentUpon>AdjustBudget.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Budget.cs" />
     <Compile Include="Categories.cs" />
     <Compile Include="Dal\AccountDb.cs" />
+    <Compile Include="Dal\BudgetDb.cs" />
     <Compile Include="Dal\PurchaseDb.cs" />
     <Compile Include="Dal\UsersDb.cs" />
     <Compile Include="DataModel.cs" />
@@ -176,7 +185,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51872</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51872/</IISUrl>
+          <IISUrl>http://localhost:51810/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -60,7 +60,14 @@ namespace BudgetAware.Dal
 
             while (reader.Read())
             {
-
+                Purchases purchase = new Purchases();
+                purchase.Id = Convert.ToInt32(reader.GetValue(0));
+                purchase.Company = reader.GetValue(1).ToString();
+                purchase.Cost = Convert.ToDecimal(reader.GetValue(2));
+                purchase.PurchaseDate = DateTime.Parse(reader.GetValue(3).ToString());
+                purchase.Categories = new Categories();
+                purchase.Categories.Name = reader.GetValue(4).ToString();
+                purchases.Add(purchase);
             }
             sqlConnection.Close();
             return purchases;

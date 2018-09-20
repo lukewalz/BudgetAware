@@ -16,13 +16,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary ">
+    <nav class="navbar navbar-expand-lg" id="mainNav">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/Index.aspx">Budget.Aware</a>
             </div>
 
-            <ul class="nav navbar-nav justify-content-center">
+            <ul class="nav navbar-nav justify-content-center" id="accountLinks" runat="server">
                 <li><a class="nav-link" href="/Register.aspx">Sign Up</a></li>
                 <li><a class="nav-link" href="/Login.aspx">Login</a></li>
             </ul>
@@ -31,10 +31,8 @@
 
 
     </nav>
-    <div class="container">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
     <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>

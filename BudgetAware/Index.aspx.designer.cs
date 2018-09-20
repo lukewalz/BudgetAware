@@ -13,24 +13,6 @@ namespace BudgetAware {
     public partial class Home {
         
         /// <summary>
-        /// userCard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userCard;
-        
-        /// <summary>
-        /// iconImg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage iconImg;
-        
-        /// <summary>
         /// userName control.
         /// </summary>
         /// <remarks>
@@ -38,6 +20,15 @@ namespace BudgetAware {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl userName;
+        
+        /// <summary>
+        /// userCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userCard;
         
         /// <summary>
         /// birthday control.
@@ -56,6 +47,15 @@ namespace BudgetAware {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountInfo;
+        
+        /// <summary>
+        /// accountBalance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountBalance;
         
         /// <summary>
         /// form1 control.

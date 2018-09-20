@@ -11,7 +11,10 @@ namespace BudgetAware
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["LoggedIn"] != null)
+            {
+                accountLinks.Visible = false;
+            }
         }
     }
 }

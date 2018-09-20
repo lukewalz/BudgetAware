@@ -20,10 +20,10 @@ namespace BudgetAware
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Application["LoggedIn"] != null)
+            if (Session["LoggedIn"] != null)
             {
                 UsersDb usersDb = new UsersDb();
-                Users user = usersDb.GetUserById(Convert.ToInt32(Application["LoggedIn"]));
+                Users user = usersDb.GetUserById(Convert.ToInt32(Session["LoggedIn"]));
                 currentUser = user;
                 userName.InnerText = $"{user.FirstName} {user.LastName}";
                 birthday.InnerText = $"Birthday:{user.Birthday.ToString("MM/dd/yyyy")}";
@@ -33,8 +33,6 @@ namespace BudgetAware
                 Response.Redirect("~/Login.aspx");
             }
 
-            string currentDir = "https://i.postimg.cc/hv8BvBj6/baseline_face_black_48dp.png";
-            iconImg.Src = currentDir;
             GetAccount();
             GetPurchases();
             GetBudget();
@@ -56,7 +54,7 @@ namespace BudgetAware
         }
 
         public void ConvertToJson()
-        {          
+        {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
             string serialUser = serializer.Serialize(currentUser);
             string serialAccount = serializer.Serialize(currentAccount);
@@ -76,17 +74,7 @@ namespace BudgetAware
             Accounts userAccount = accountDb.GetAccountsByUserId(currentUser.Id);
             currentAccount = userAccount;
             accountInfo.InnerText = $"Account Number : {currentAccount.AccountNumber}";
-        }
-
-        protected void Unnamed_ServerClick(object sender, EventArgs e)
-        {
-            Purchases purchase = new Purchases();
-            purchase.Fk_AccountNumber = currentAccount.AccountNumber;
-            purchase.Fk_CategoryId = Convert.ToInt32(this.category.Value);
-            purchase.PurchaseDate = DateTime.Now.Date;
-            purchase.Cost = Convert.ToDecimal(cost.Value);
-            purchase.Company = this.company.Value;
-            bool purchaseAdded = AddPurchase(purchase);
+            accountBalance.InnerText = $"Account Balance :{ currentAccount.Balance}";
         }
 
         private bool AddPurchase(Purchases purchase)
@@ -103,5 +91,17 @@ namespace BudgetAware
             }
         }
 
+        protected void Unnamed_Click1(object sender, EventArgs e)
+        {
+            Purchases purchase = new Purchases();
+            purchase.Fk_AccountNumber = currentAccount.AccountNumber;
+            purchase.Fk_CategoryId = Convert.ToInt32(this.category.Value);
+            purchase.PurchaseDate = DateTime.Now.Date;
+            purchase.Cost = Convert.ToDecimal(cost.Value);
+            purchase.Company = this.company.Value;
+            bool purchaseAdded = AddPurchase(purchase);
+
+            Response.Redirect("/Index.aspx");
+        }
     }
 }

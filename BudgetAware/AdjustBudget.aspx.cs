@@ -14,10 +14,10 @@ namespace BudgetAware
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Application["LoggedIn"] != null)
+            if (Session["LoggedIn"] != null)
             {
                 UsersDb usersDb = new UsersDb();
-                Users user = usersDb.GetUserById(Convert.ToInt32(Application["LoggedIn"]));
+                Users user = usersDb.GetUserById(Convert.ToInt32(Session["LoggedIn"]));
                 currentUser = user;
             }
             else

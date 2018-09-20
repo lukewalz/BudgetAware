@@ -62,7 +62,7 @@ namespace BudgetAware
             {
                 if (user.Password == password)
                 {
-                    Application["LoggedIn"] = user.Id;
+                    Session["LoggedIn"] = user.Id;
                     Response.Redirect("~/Index.aspx");
                 }
             }

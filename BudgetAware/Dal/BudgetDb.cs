@@ -32,6 +32,29 @@ namespace BudgetAware.Dal
 
             sqlConnection.Close();
         }
+
+        public void UpdateBudget(Budget budget)
+        {
+            SqlConnection sqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DataModel"].ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = "dbo.UpdateBudget";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = sqlConnection;
+
+            cmd.Parameters.Add("@UserId", SqlDbType.Int, 50).Value = budget.Fk_UserId;
+            cmd.Parameters.Add("@Amount", SqlDbType.Money, 50).Value = budget.Amount;
+            cmd.Parameters.Add("@CategoryId", SqlDbType.Int, 50).Value = budget.Fk_CategoriesId;
+
+            sqlConnection.Open();
+
+            reader = cmd.ExecuteReader();
+            // Data is accessible through the DataReader object here.
+
+            sqlConnection.Close();
+        }
+
         public List<Budget> GetBudgetByUserId(int UserId)
         {
             List<Budget> budgetList = new List<Budget>();

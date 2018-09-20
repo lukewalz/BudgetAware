@@ -36,7 +36,7 @@
         miscArray.map(i => miscBudget = miscBudget + i);
         entertainmentArray.map(i => entertainmentBudget = entertainmentBudget + i);
         autoArray.map(i => autoBudget = autoBudget + i);
-        rentArray.map(i => rentBudget = rentBudget+ i);
+        rentArray.map(i => rentBudget = rentBudget + i);
 
 
         let costArray = [clothesCost, foodCost, miscCost, entertainmentCost, autoCost, rentCost];
@@ -80,23 +80,26 @@ class RecentPurchases extends React.Component {
 
     render() {
         return (
-            <div className={this.state.minList ? 'minifiedList card-body' : 'expendedList card-body'}>
+            <div>
                 <div className='card-header'>
                     Recent Purchases
                     </div>
-                <div className='card-text'>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Company</th>
-                                <th>Amount</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.props.purchases.map(i => <tr><td>{i.Company}</td><td>{i.Cost}</td><td>{this.parseJsonDate(i.PurchaseDate)}</td></tr>)}
-                        </tbody>
-                    </table>
+                <div className={this.state.minList ? 'minifiedList card-body' : 'expendedList card-body'}>
+
+                    <div className='card-text'>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.props.purchases.map(i => <tr><td>{i.Company}</td><td>{i.Cost}</td><td>{this.parseJsonDate(i.PurchaseDate)}</td></tr>)}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -163,7 +166,7 @@ class PurchaseSummary extends React.Component {
 
     render() {
         let purchaseText = document.getElementById('ContentPlaceHolder1_hiddenJsonPurchases');
-        
+
         let budgetText = document.getElementById('ContentPlaceHolder1_hiddenJsonBudget');
 
         return <div onClick={this.onClick}><RecentPurchases ref={this.child} purchases={this.deserialize(purchaseText)} /> <PieChart data={this.categorizePurchases(purchaseText)} /><BudgetDiagram purchases={this.categorizePurchases(purchaseText)} budget={this.deserialize(budgetText)} /> </div>
@@ -214,12 +217,15 @@ class BudgetDiagram extends React.Component {
 
         var options = {
             width: '100%',
-            bars: 'horizontal'
+            bars: 'vertical',
+            colors: ['#34495e', '#ecf0f1']
         }
 
         var chart = new google.charts.Bar(document.getElementById('bar'));
 
         chart.draw(data, options);
+        document.getElementsByTagName("rect")[0].setAttribute("style", "width:100%");
+
     }
 
     render() {
@@ -261,7 +267,7 @@ class PieChart extends React.Component {
         var options = {
             'width': '100%',
             'height': 300,
-            'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6', '#f9d58f', '#f12rt4'],
+            'colors': ['#34495e', '#2c3e50', '#95a5a6', '#7f8c8d', '#bdc3c7', '#ecf0f1', '#f6f6f6'],
         };
 
         // Instantiate and draw our chart, passing in some options.

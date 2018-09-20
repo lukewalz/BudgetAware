@@ -52,7 +52,7 @@ namespace BudgetAware
             }
 
 
-            Application["LoggedIn"] = _user.Id.ToString();
+            Session["LoggedIn"] = _user.Id.ToString();
             Response.Redirect("/Index.aspx");
         }
 

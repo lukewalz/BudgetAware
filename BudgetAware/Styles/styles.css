@@ -1,6 +1,7 @@
 ﻿body {
     font-family: Roboto;
     background-color: #E0E0E0;
+    font-size:2em;
 }
 
 .row {
@@ -12,6 +13,15 @@
 a {
     color: white;
     height: 100%;
+}
+
+.form-control{
+    font-size:1.5em;
+    height:auto;
+}
+
+text{
+    font-size: initial;
 }
 
 ul {
@@ -38,6 +48,13 @@ h1 {
 
 .userTitle {
     font-size: 30px;
+}
+#mainNav {
+    background-color: #34495e;
+}
+
+.btn-primary {
+    background-color: #34495e;
 }
 
 .card {

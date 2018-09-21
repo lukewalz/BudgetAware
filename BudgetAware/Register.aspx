@@ -3,10 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:UpdatePanel runat="server">
-        <ContentTemplate>
-            <div class="container-fluid">
-
+    <div class="container-fluid">
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -49,10 +48,9 @@
                         <asp:Button Text="Submit" ID="submit" runat="server" type="submit" class="btn btn-primary" OnClick="submit_Click" />
                     </div>
                 </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
-
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+    </div>
 
 </asp:Content>

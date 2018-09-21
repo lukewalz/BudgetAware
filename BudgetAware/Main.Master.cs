@@ -14,7 +14,25 @@ namespace BudgetAware
             if (Session["LoggedIn"] != null)
             {
                 accountLinks.Visible = false;
+                signOutPanel.Visible = true;
             }
+            else
+            {
+                accountLinks.Visible = true;
+                signOutPanel.Visible = false;
+            }
+        }
+
+        protected void signOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Login.aspx");
+        }
+
+        protected void signOut_Click1(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Login.aspx");
         }
     }
 }

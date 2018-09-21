@@ -55,30 +55,33 @@
                     <div class="card-body">
                         <div class="container-fluid">
                             <div class="row">
-                                <form id="form1" runat="server">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="company">Company:</label>
-                                            <input type="text" class="form-control" id="company" runat="server" required="required">
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="company">Company:</label>
+                                                <input type="text" class="form-control" id="company" runat="server" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cost">Cost:</label>
+                                                <input type="text" class="form-control" id="cost" runat="server" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="category">Category:</label>
+                                                <select runat="server" id="category" class="dropdown">
+                                                    <option value="1">Clothing</option>
+                                                    <option value="2">Food</option>
+                                                    <option value="6">Auto</option>
+                                                    <option value="9">Entertainment</option>
+                                                    <option value="8">Rent</option>
+                                                    <option value="7">Misc</option>
+                                                </select>
+                                            </div>
+                                            <asp:Button runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" Text="Submit"></asp:Button>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="cost">Cost:</label>
-                                            <input type="text" class="form-control" id="cost" runat="server" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="category">Category:</label>
-                                            <select runat="server" id="category" class="dropdown">
-                                                <option value="1">Clothing</option>
-                                                <option value="2">Food</option>
-                                                <option value="6">Auto</option>
-                                                <option value="9">Entertainment</option>
-                                                <option value="8">Rent</option>
-                                                <option value="7">Misc</option>
-                                            </select>
-                                        </div>
-                                        <asp:Button runat="server" OnClick="Unnamed_Click1" class="btn btn-primary" Text="Submit"></asp:Button>
-                                    </div>
-                                </form>
+
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
                     </div>

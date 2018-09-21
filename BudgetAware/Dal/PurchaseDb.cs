@@ -23,7 +23,7 @@ namespace BudgetAware.Dal
             cmd.Parameters.Add("@Cost", SqlDbType.Money, 50).Value = purchase.Cost;
             cmd.Parameters.Add("@Company", SqlDbType.VarChar, 50).Value = purchase.Company;
             cmd.Parameters.Add("@PurchaseDate", SqlDbType.Date, 50).Value = purchase.PurchaseDate;
-            cmd.Parameters.Add("@AccountNumber", SqlDbType.Int, 50).Value = purchase.Fk_AccountNumber;
+            cmd.Parameters.Add("@AccountNumber", SqlDbType.BigInt, 50).Value = purchase.Fk_AccountNumber;
 
             sqlConnection.Open();
 
@@ -40,7 +40,7 @@ namespace BudgetAware.Dal
             return id;
         }
 
-        public List<Purchases> GetPurchasesByAccountId(int Id)
+        public List<Purchases> GetPurchasesByAccountNumber(long Id)
         {
             List<Purchases> purchases = new List<Purchases>();
             SqlConnection sqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DataModel"].ConnectionString);

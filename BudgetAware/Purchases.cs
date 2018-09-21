@@ -22,7 +22,7 @@ namespace BudgetAware
         [Column(TypeName = "date")]
         public DateTime PurchaseDate { get; set; }
 
-        public int Fk_AccountNumber { get; set; }
+        public long Fk_AccountNumber { get; set; }
 
         public virtual Accounts Accounts { get; set; }
 

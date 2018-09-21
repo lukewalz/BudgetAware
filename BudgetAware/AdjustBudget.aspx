@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="addBudget" class="card col container-fluid" runat="server">
-        <div class="container-fluid">
-            <div class="row">
-                <form id="budgetForm" runat="server">
+        <div class="row">
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
                     <div class="col">
                         <div class="form-group">
                             <label for="company">Amount:</label>
@@ -25,8 +25,9 @@
                         </div>
                     </div>
                     <asp:Button Text="Submit Budget" CssClass="btn btn-primary" runat="server" ID="submitBudget" OnClick="submitBudget_Click" />
-                </form>
-            </div>
+
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 </asp:Content>

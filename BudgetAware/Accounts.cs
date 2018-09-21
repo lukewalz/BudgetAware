@@ -15,7 +15,7 @@ namespace BudgetAware
         }
 
         [Key]
-        public int AccountNumber { get; set; }
+        public long AccountNumber { get; set; }
 
         [Required]
         [StringLength(50)]

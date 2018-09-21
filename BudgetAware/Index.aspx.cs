@@ -49,7 +49,7 @@ namespace BudgetAware
         private void GetPurchases()
         {
             PurchaseDb purchaseDb = new PurchaseDb();
-            List<Purchases> userPurchases = purchaseDb.GetPurchasesByAccountId(currentAccount.AccountNumber);
+            List<Purchases> userPurchases = purchaseDb.GetPurchasesByAccountNumber(currentAccount.AccountNumber);
             currentPurchases = userPurchases;
         }
 
@@ -73,8 +73,8 @@ namespace BudgetAware
             AccountDb accountDb = new AccountDb();
             Accounts userAccount = accountDb.GetAccountsByUserId(currentUser.Id);
             currentAccount = userAccount;
-            accountInfo.InnerText = $"Account Number : {currentAccount.AccountNumber}";
-            accountBalance.InnerText = $"Account Balance :{ currentAccount.Balance}";
+            accountInfo.InnerHtml = $"<div>Account Number <p>{currentAccount.AccountNumber} </p></div>";
+            accountBalance.InnerHtml = $"<div>Account Balance <p>{ currentAccount.Balance}</p></div>";
         }
 
         private bool AddPurchase(Purchases purchase)

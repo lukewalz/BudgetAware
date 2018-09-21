@@ -20,7 +20,7 @@ namespace BudgetAware.Dal
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = sqlConnection;
 
-            cmd.Parameters.Add("@AccountNumber", SqlDbType.Int, 50).Value = account.AccountNumber;
+            cmd.Parameters.Add("@AccountNumber", SqlDbType.BigInt, 50).Value = account.AccountNumber;
             cmd.Parameters.Add("@AccountType", SqlDbType.VarChar, 50).Value = account.AccountType;
             cmd.Parameters.Add("@Balance", SqlDbType.Money, 50).Value = account.Balance;
             cmd.Parameters.Add("@UserId", SqlDbType.Int, 50).Value = account.Fk_UserId;
@@ -59,7 +59,7 @@ namespace BudgetAware.Dal
 
             while (reader.Read())
             {
-                accounts.AccountNumber = Int32.Parse(reader.GetValue(0).ToString());
+                accounts.AccountNumber = Int64.Parse(reader.GetValue(0).ToString());
                 accounts.AccountType = reader.GetValue(1).ToString();
                 accounts.Balance = Convert.ToDecimal(reader.GetValue(2));
             }

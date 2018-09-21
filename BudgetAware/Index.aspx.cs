@@ -53,6 +53,17 @@ namespace BudgetAware
             currentPurchases = userPurchases;
         }
 
+        private void AddBudgetToTable()
+        {
+            Budget budget = new Budget();
+            budget.Fk_UserId = currentUser.Id;
+            budget.Amount = Convert.ToDecimal(budgetAmount.Value);
+            budget.Fk_CategoriesId = Convert.ToInt32(budgetCategory.Value);
+
+            BudgetDb budgetDb = new BudgetDb();
+            budgetDb.AddBudget(budget);
+        }
+
         public void ConvertToJson()
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer(new SimpleTypeResolver());
@@ -102,6 +113,11 @@ namespace BudgetAware
             bool purchaseAdded = AddPurchase(purchase);
 
             Response.Redirect("/Index.aspx");
+        }
+
+        protected void submitBudget_Click(object sender, EventArgs e)
+        {
+            AddBudgetToTable();
         }
     }
 }

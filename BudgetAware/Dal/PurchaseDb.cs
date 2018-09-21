@@ -47,11 +47,11 @@ namespace BudgetAware.Dal
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = "dbo.GetPurchasesByAccountId";
+            cmd.CommandText = "dbo.GetPurchasesByAccountNumber";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = sqlConnection;
 
-            cmd.Parameters.Add("@AccountId", SqlDbType.Int, 50).Value = Id;
+            cmd.Parameters.Add("@AccountNumber", SqlDbType.BigInt, 50).Value = Id;
 
             sqlConnection.Open();
 

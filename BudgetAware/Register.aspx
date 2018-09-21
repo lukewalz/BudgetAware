@@ -7,7 +7,7 @@
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label for="fName">First Name:</label>
                             <input type="text" class="form-control" id="fName" runat="server" required="required">
@@ -33,7 +33,7 @@
                             <input type="date" class="form-control" id="dob" runat="server" required="required">
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label for="accounttype">Account Type:</label>
                             <select type="datetime-local" class="form-control" id="accounttype" runat="server" required="required">

@@ -118,6 +118,7 @@ namespace BudgetAware
         protected void submitBudget_Click(object sender, EventArgs e)
         {
             AddBudgetToTable();
+            Response.Redirect("/Index.aspx");
         }
     }
 }

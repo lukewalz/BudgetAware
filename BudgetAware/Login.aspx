@@ -13,6 +13,8 @@
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="col">
+                        <div id="error" class="alert alert-danger" runat="server" visible="false"></div>
+
                         <div class="form-group">
                             <label for="email">Email address:</label>
                             <input type="email" class="form-control" id="email" runat="server" required="required">

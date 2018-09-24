@@ -8,6 +8,7 @@
             <ContentTemplate>
                 <div class="row">
                     <div class="col-lg-6">
+                        <div id="error" class="alert alert-danger" runat="server" visible="false"></div>
                         <div class="form-group">
                             <label for="fName">First Name:</label>
                             <input type="text" class="form-control" id="fName" runat="server" required="required">
@@ -18,11 +19,11 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email" runat="server" required="required">
+                            <input type="email" class="form-control" id="email" runat="server" required="required" >
                         </div>
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" runat="server" required="required">
+                            <input type="password" class="form-control" id="pwd" runat="server" pattern=".{7,20}" required title="Enter a password between 7 and 20 characters long.">
                         </div>
                         <div class="form-group">
                             <label for="cpwd">Confirm Password:</label>

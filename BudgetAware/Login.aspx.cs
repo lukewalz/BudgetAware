@@ -28,7 +28,8 @@ namespace BudgetAware
             }
             else
             {
-                //invalid
+                this.error.Visible = true;
+                this.error.InnerText = "Email Address is Invalid";
             }
         }
 
@@ -64,6 +65,11 @@ namespace BudgetAware
                 {
                     Session["LoggedIn"] = user.Id;
                     Response.Redirect("~/Index.aspx");
+                }
+                else
+                {
+                    this.error.Visible = true;
+                    this.error.InnerText = "Password is incorrect";
                 }
             }
 

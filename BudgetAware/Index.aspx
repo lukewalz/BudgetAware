@@ -19,7 +19,6 @@
                             <div id="birthday" runat="server"></div>
                             <div id="accountInfo" runat="server"></div>
                             <div id="accountBalance" runat="server"></div>
-
                         </div>
                     </div>
 
@@ -28,7 +27,7 @@
 
         </div>
         <div class="row">
-            <div id="app" class="col">
+            <div class="col">
                 <div class="card">
                     <div class='card-header'>
                         Your Spending
@@ -154,5 +153,9 @@
     </div>
     <div id="hiddenJsonBudget" runat="server" hidden="hidden">
     </div>
-    </div>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="/Scripts/script.jsx" type="text/babel"></script>
 </asp:Content>

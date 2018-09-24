@@ -47,13 +47,25 @@ namespace BudgetAware
                     AccountDb _accountDb = new AccountDb();
                     int account = _accountDb.AddAccount(_account);
                     _user.Id = userId;
+
+
+                    Session["LoggedIn"] = _user.Id.ToString();
+                    Response.Redirect("/Index.aspx");
+                }
+                else
+                {
+                    this.error.Visible = true;
+                    this.error.InnerText = "Password and Confirm Password must match.";
                 }
 
             }
+            else
+            {
+                this.error.Visible = true;
+                this.error.InnerText = "Email Address is already in use.";
+            }
 
 
-            Session["LoggedIn"] = _user.Id.ToString();
-            Response.Redirect("/Index.aspx");
         }
 
         private bool DoesUserExist(string email)

@@ -1,62 +1,4 @@
-﻿class BudgetCategories extends React.Component {
-    constructor(props) {
-        super(props);
-        this.deserialize = this.deserialize.bind(this);
-        this.categorizeBudget = this.categorizeBudget.bind(this);
-    }
-
-    categorizeBudget() {
-
-        let deserializedObject = this.deserialize();
-        console.log(typeof deserializedObject);
-        let clothesArray = [];
-        let foodArray = [];
-        let miscArray = [];
-        let entertainmentArray = [];
-        let rentArray = [];
-        let autoArray = [];
-
-        let clothesBudget = 0;
-        let foodBudget = 0;
-        let miscBudget = 0;
-        let entertainmentBudget = 0;
-        let autoBudget = 0;
-        let rentBudget = 0;
-
-        deserializedObject.map(i => i.Categories.Name == 'Clothing' ? clothesArray.push(i.Amount) : '');
-        deserializedObject.map(i => i.Categories.Name == 'Food' ? foodArray.push(i.Amount) : '');
-        deserializedObject.map(i => i.Categories.Name == 'Misc' ? miscArray.push(i.Amount) : '');
-        deserializedObject.map(i => i.Categories.Name == 'Entertainment' ? entertainmentArray.push(i.Amount) : '');
-        deserializedObject.map(i => i.Categories.Name == 'Auto' ? autoArray.push(i.Amount) : '');
-        deserializedObject.map(i => i.Categories.Name == 'Rent' ? rentArray.push(i.Amount) : '');
-
-
-        clothesArray.map(i => clothesBudget = clothesBudget + i);
-        foodArray.map(i => foodBudget = foodBudget + i);
-        miscArray.map(i => miscBudget = miscBudget + i);
-        entertainmentArray.map(i => entertainmentBudget = entertainmentBudget + i);
-        autoArray.map(i => autoBudget = autoBudget + i);
-        rentArray.map(i => rentBudget = rentBudget + i);
-
-
-        let costArray = [clothesCost, foodCost, miscCost, entertainmentCost, autoCost, rentCost];
-        return costArray;
-    }
-
-    deserialize() {
-        let text = document.getElementById('ContentPlaceHolder1_hiddenJsonBudget');
-        let arrayBudget = [];
-        let value = JSON.parse(text.innerText);
-        arrayBudget = value;
-        return arrayBudget;
-    }
-
-    render() {
-        return <BudgetDiagram data={this.categorizeBudget()} purchases={this.props.purchaseCategories} />;
-    }
-}
-
-class RecentPurchases extends React.Component {
+﻿class RecentPurchases extends React.Component {
     constructor(props) {
         super(props)
         this.parseJsonDate = this.parseJsonDate.bind(this);
@@ -159,7 +101,6 @@ class PurchaseSummary extends React.Component {
     }
 
     deserialize(text) {
-        //let text = document.getElementById('ContentPlaceHolder1_hiddenJsonPurchases')
         let value = JSON.parse(text.innerText);
         return value;
     }
@@ -179,11 +120,10 @@ class BudgetDiagram extends React.Component {
         super(props);
         this.renderBudgetChart = this.renderBudgetChart.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
-
     }
     componentDidMount() {
         google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(this.renderBudgetChart);
+        google.charts.setOnLoadCallback(this.renderBudgetChart());
     }
 
     renderBudgetChart() {
@@ -201,9 +141,6 @@ class BudgetDiagram extends React.Component {
         miscBudget = miscBudget = miscBudget == undefined ? 0 : miscBudget.Amount;
         autoBudget = autoBudget == undefined ? 0 : autoBudget.Amount;
         rentBudget = rentBudget == undefined ? 0 : rentBudget.Amount;
-
-        console.log(rentBudget);
-        console.log(foodBudget);
 
         var data = new google.visualization.arrayToDataTable([
             ['Category', 'Budget', 'Spent'],
@@ -224,8 +161,6 @@ class BudgetDiagram extends React.Component {
         var chart = new google.charts.Bar(document.getElementById('bar'));
 
         chart.draw(data, options);
-        document.getElementsByTagName("rect")[0].setAttribute("style", "width:100%");
-
     }
 
     render() {

@@ -37,6 +37,8 @@ namespace BudgetAware.Dal
                 id = Int32.Parse(reader.GetValue(0).ToString());
             }
             sqlConnection.Close();
+
+
             return id;
         }
         public Accounts GetAccountsByUserId(int UserId)

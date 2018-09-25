@@ -1,7 +1,7 @@
 # BudgetAware
 
 Mock bank account budgeting and purchase tracking web application.
-Can be found in production at [BudgetAware](budgetapplication.azurewebsites.net)
+Can be found in production at [BudgetAware](http://budgetaware.azurewebsites.net)
 
 ## Getting Started
 

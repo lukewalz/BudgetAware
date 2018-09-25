@@ -53,8 +53,8 @@ Add additional notes about how to deploy this on a live system
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Future Features
 
-* Hat tip to anyone whose code was used
-* Inspiration
+* Delete purchases/accounts
+* Account Management
 * etc

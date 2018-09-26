@@ -26,11 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Authors
 
-* **Luke Walz** - *Initial work*
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Luke Walz**
 
 ## Future Features
 

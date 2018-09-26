@@ -33,3 +33,6 @@ These instructions will get you a copy of the project up and running on your loc
 * Delete purchases/accounts
 * Account Management
 * Responsive charts
+
+## Schema
+[DB Schema](http://i67.tinypic.com/1eqsr4.jpg)
